@@ -33,25 +33,24 @@ namespace Laba10Osnovy
 
             // Найти в заштрихованной области матрицы количество элементов, равных 4. 
 
-            int q = 0;
-            int w = 0;
+            int Result = 0;
+            int PolozhitElementy = 0;
 
             for (int i = 0; i < 6; i++)
                 for (int j = i; j < 12 - i; j++)
                 {
-                    
-                    q = B[i, j] == 4 ? q += 1 : q;
-                    w = B[i, j] > 0 ? w += 1 : w;
+                    Result = B[i, j] == 4 ? Result += 1 : Result;
+                    PolozhitElementy = B[i, j] > 0 ? PolozhitElementy += 1 : PolozhitElementy;
                 }
 
             Console.WriteLine();
-            Console.WriteLine($"1) Ответ: {q}");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"1) Количество элементов, равных 4.: {Result}");
+            
 
 
 
             // Сформировать одномерный массив K из положительных элементов заштрихованной области матрицы. 
-            int[] K = new int[w];
+            int[] K = new int[PolozhitElementy];
             int e = 0;
             for (int i = 0; i < 6; i++)
                 for (int j = i; j < 12 - i; j++)
@@ -60,7 +59,7 @@ namespace Laba10Osnovy
                         K[e] = B[i, j];
                         e++;
                     }
-            Console.Write($"2) Одномерный массив K: "); Console.Write("{ "); Console.Write(String.Join(", ", K)); Console.Write(" }");
+            Console.Write($"2) K = "); Console.Write("{ "); Console.Write(String.Join(", ", K)); Console.Write(" }");
             //foreach (var item in K)
             //    Console.Write($"{item} ");
             Console.WriteLine();
@@ -68,18 +67,18 @@ namespace Laba10Osnovy
 
             // Сформировать одномерный массив F из сумм элементов каждой строки заштрихованной области. 
             int[] F = new int[6];
-            int S;
+            int SummElementov = 0;
             for (int i = 0; i < 6; i++)
             {
-                S = 0;
+                SummElementov = 0;
                 for (int j = i; j < 12 - i; j++)
                 {
-                    S += B[i, j];
+                    SummElementov += B[i, j];
                 }
-                F[i] = S;
+                F[i] = SummElementov;
             }
 
-            Console.Write($"2) Одномерный массив F: "); Console.Write("{ "); Console.Write(String.Join(", ", F)); Console.Write(" }");
+            Console.Write($"2) F = "); Console.Write("{ "); Console.Write(String.Join(", ", F)); Console.Write(" }");
             //foreach (var item in F)
             //    Console.Write($"{item} ");
             Console.WriteLine();
@@ -94,8 +93,8 @@ namespace Laba10Osnovy
                         S2 += B[i, j];
                         y++;
                     }
-            double Sr = S2 / y;
-            Console.WriteLine($"4) Ответ: {Sr}");
+            double SredArifmed = S2 / y;
+            Console.WriteLine($"4) Ответ: {SredArifmed}");
 
 
 
